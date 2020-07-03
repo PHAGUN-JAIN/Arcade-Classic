@@ -3,14 +3,21 @@
 Phagun jain was here! <b>This is thick</b> and 
 <i>this is slanted</i> and this text is normal.
 New text added here.
+
 <canvas id="gameCanvas" width="800" height="600"></canvas>
-windows.onload=function(){
          
             <script>
-         
-              console.log("hello world!");
- 
+          
+             var canvas; //for dimension of the canvas
+             var canvasContext //graphical cotext
+window.onload	=	function(){   
+              
+          console.log("hello world!");
+          canvas	=	document.getElementByid('gameCanvas');
+         canvasContext = canvas.getContext('2d');
+         canvasContext.fillStyle = 'black';
+         canvasContext.fillRect(0,0,canvas.width,canvas.height);
+ }
             </script>
-}
 
 </html>
