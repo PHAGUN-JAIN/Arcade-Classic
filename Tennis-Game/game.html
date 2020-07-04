@@ -29,7 +29,7 @@ window.onload  = function(){
                   function(evt){
                         var mousePos = calculateMousePos(evt);
                          paddle1Y = mousePos.y;
-              })
+              });
 }
 
 //function for controlling paddle
@@ -40,7 +40,7 @@ function calculateMousePos(evt) {
              var mouseY = evt.clientY - rect.Top - root.scrollTop;
             return {
                     x:mouseX,
-                    y:mouseeY
+                    y:mouseY
         };
 
 }
@@ -70,7 +70,7 @@ if(ballY > canvas.height){
     colorRect(0,0,canvas.width,canvas.height,'black');
     
      //left player paddle
-    colorRect(0,padddle1Y,10,100,'white');
+    colorRect(0,paddle1Y,10,100,'white');
 
      //next line draws ball
   colorCircle(ballX, ballY, 10, 'white');
