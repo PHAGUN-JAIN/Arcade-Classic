@@ -3,3 +3,10 @@ this game is buid on a canvas using javascript only.
 till now i have build a function that controlls the drawing of every game object.
 
  during this build i faced 2 minor errors due to typos
+
+by 4:47
+
+ -variables are used for controlling the motion 
+ -drawing and calculation function separated
+ - game objects are creatd using function template(code become readable)
+ 
