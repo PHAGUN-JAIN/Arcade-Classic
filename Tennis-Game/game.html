@@ -35,8 +35,13 @@ if(ballX > canvas.width){
 }
 
  function drawEverything() {
+    //blacks out hhte screen
     colorRect(0,0,canvas.width,canvas.height,'black');
+    
+     //left player paddle
     colorRect(0,210,10,100,'white');
+
+     //next line creates ball
     colorRect(ballX,100,10,10,'red');
 }
 
