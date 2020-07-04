@@ -28,7 +28,7 @@ window.onload  = function(){
  canvas.addEventListener('mousemove',
                   function(evt){
                         var mousePos = calculateMousePos(evt);
-                         paddle1Y = mousePos.y;
+                         paddle1Y = mousePos.y-(PADDLE_HEIGHT/2;
               });
 }
 
@@ -45,7 +45,17 @@ function calculateMousePos(evt) {
 
 }
 
+
+
+
+
+
+
+
+
+
 function moveEverything() {
+
                  ballX= ballX + ballSpeedX;
 if(ballX<0) {
         ballSpeedX=-ballSpeedX;                 
@@ -65,18 +75,30 @@ if(ballY > canvas.height){
 
 }
 
+
+
+
+
  function drawEverything() {
     //blacks out hhte screen
     colorRect(0,0,canvas.width,canvas.height,'black');
     
      //left player paddle
-    colorRect(0,paddle1Y,10,100,'white');
+    colorRect(0,paddle1Y,10,PADDLE_HEIGHT,'white');
 
      //next line draws ball
   colorCircle(ballX, ballY, 10, 'white');
 
 }
 
+
+
+
+
+
+
+
+//template function for drawing ball
  function colorCircle(centerX, centerY , radius , drawColor) { 
          canvasContext.fillStyle = drawColor;
          canvasContext.beginPath();
