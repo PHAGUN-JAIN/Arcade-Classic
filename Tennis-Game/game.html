@@ -24,6 +24,12 @@ window.onload  = function(){
                      moveEverything();
                      drawEverything();
 }, 1000/framesPerSecond);
+
+ canvas.addEventListener('mousemove',
+                  function(evt){
+                        var mousePos = calculateMousePos(evt);
+                         paddle1Y = mousePos.y;
+              })
 }
 
 //function for controlling paddle
@@ -64,7 +70,7 @@ if(ballY > canvas.height){
     colorRect(0,0,canvas.width,canvas.height,'black');
     
      //left player paddle
-    colorRect(0,padddle1Y,10,PADDLE_HEIGHT,'white');
+    colorRect(0,padddle1Y,10,100,'white');
 
      //next line draws ball
   colorCircle(ballX, ballY, 10, 'white');
