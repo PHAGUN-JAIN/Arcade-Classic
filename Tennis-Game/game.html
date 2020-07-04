@@ -1,7 +1,7 @@
 <html>
 
 
-<canvas id="gameCanvas" width="800" height="600"></canvas>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
          
             <script>
           
@@ -9,29 +9,27 @@
              var canvasContext;                                                            //graphical cotext
              var ballX =  50;
 
+             var ballSpeedX=5;
 
 
-
-window.onload	=	function(){   
+window.onload  = function(){   
               
           canvas = document.getElementById('gameCanvas');
           canvasContext = canvas.getContext('2d');
 
           var framesPerSecond= 30;
-          setInterval(function(){
+          setInterval(function() {
                      moveEverything();
                      drawEverything();
 }, 1000/framesPerSecond);
 }
 
-function moveEverything(){
-                   ballX = balllX + 5;
+function moveEverything() {
+                 ballX= ballX + ballSpeedX;
 }
 
-
  function drawEverything() {
-       
-        console.log(ballX);
+
         canvasContext.fillStyle = 'black';
         canvasContext.fillRect(0,0,canvas.width,canvas.height);
         canvasContext.fillStyle = 'white';
