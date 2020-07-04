@@ -8,9 +8,9 @@
              var canvas;                                                                    //for dimension of the canvas
              var canvasContext;                                                            //graphical cotext
              var ballX =  50;
-
+             var ballY = 50;
              var ballSpeedX=5;
-
+             var ballSpeedY = 4;
 
 window.onload  = function(){   
               
@@ -32,6 +32,16 @@ if(ballX<0) {
 if(ballX > canvas.width){
                           ballSpeedX=-ballSpeedX;
                     }
+
+  ballY = ballY + ballSpeedY;
+if(ballY < 0 ) {
+        ballSpeedY = -ballSpeedY;                 
+}
+if(ballY > canvas.height){
+                          ballSpeedY = -ballSpeedY;
+                    }
+
+
 }
 
  function drawEverything() {
@@ -42,7 +52,7 @@ if(ballX > canvas.width){
     colorRect(0,210,10,100,'white');
 
      //next line draws ball
-  colorCircle(ballX, 150, 10, 'white');
+  colorCircle(ballX, ballY, 10, 'white');
 
 }
 
