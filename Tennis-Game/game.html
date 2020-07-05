@@ -12,6 +12,7 @@
              var ballSpeedX=5;
              var ballSpeedY = 4;
              var paddle1Y = 250;
+             var paddle2Y = 250;
              const PADDLE_HEIGHT = 100;
 
 window.onload  = function(){   
@@ -96,6 +97,9 @@ if(ballY > canvas.height){
     
      //left player paddle
     colorRect(0,paddle1Y,10,PADDLE_HEIGHT,'white');
+
+    //right player paddle
+    colorRect(canvas.width-10,paddle2Y,10,PADDLE_HEIGHT,'white');
 
      //next line draws ball
   colorCircle(ballX, ballY, 10, 'white');
