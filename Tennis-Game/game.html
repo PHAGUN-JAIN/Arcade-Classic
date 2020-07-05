@@ -58,13 +58,22 @@ function calculateMousePos(evt) {
 
 
 
-
+ function computerMovement(){
+             
+             var paddle2YCenter = paddle2Y + (PADLE_HEIGHT/2);
+             if(paddle2YCenter < ballY) {
+                        paddle2Y +=  6;
+                   } else {
+                            paddle2Y -= 6;
+                   }
+ }
 
 
 
 function moveEverything() {
+             computerMovement();
 
-                 ballX= ballX + ballSpeedX;
+                 ballX += ballSpeedX;
 
 if(ballX < 0) {
        //resetting ball on striking with wall left
@@ -87,7 +96,7 @@ if(ballX > canvas.width){
                           //ballSpeedX = -ballSpeedX;
               }
 
-  ballY = ballY + ballSpeedY;
+  ballY +=  ballSpeedY;
 
 if(ballY < 0 ) {
         ballSpeedY = -ballSpeedY;                 
