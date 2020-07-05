@@ -32,6 +32,11 @@ window.onload  = function(){
               });
 }
 
+ function ballReset() {
+            ballX = canvas.width/2;
+            ballY = canvas.height/2;
+ }
+
 //function for controlling paddle
 function calculateMousePos(evt) {
              var rect = canvas.getBoundingClientRect();
@@ -58,7 +63,8 @@ function moveEverything() {
 
                  ballX= ballX + ballSpeedX;
 if(ballX<0) {
-        ballSpeedX=-ballSpeedX;                 
+        //ballSpeedX=-ballSpeedX;
+          ballReset();                 
 }
 if(ballX > canvas.width){
                           ballSpeedX=-ballSpeedX;
