@@ -33,6 +33,7 @@ window.onload  = function(){
 }
 
  function ballReset() {
+            ballSpeedX=-ballSpeedX;
             ballX = canvas.width/2;
             ballY = canvas.height/2;
  }
@@ -62,8 +63,12 @@ function calculateMousePos(evt) {
 function moveEverything() {
 
                  ballX= ballX + ballSpeedX;
-if(ballX<0) {
-        //ballSpeedX=-ballSpeedX;
+if(ballX < 0) {
+           if(ballY > paddle1Y && ballY < paddle1Y+PADDLE_HEIGHT) {
+                 ballSpeedX = -ballSpeedX;   
+                 } else {
+                        ballReset();
+                   }
           ballReset();                 
 }
 if(ballX > canvas.width){
