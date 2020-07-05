@@ -60,10 +60,10 @@ function calculateMousePos(evt) {
 
  function computerMovement(){
              
-             var paddle2YCenter = paddle2Y + (PADLE_HEIGHT/2);
+             var paddle2YCenter = paddle2Y + (PADDLE_HEIGHT/2);
              if(paddle2YCenter < ballY) {
                         paddle2Y +=  6;
-                   } else {
+                   } else if(paddle2YCenter > ballY+35){
                             paddle2Y -= 6;
                    }
  }
