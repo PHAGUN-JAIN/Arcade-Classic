@@ -14,6 +14,7 @@
 
              var player1score = 0;
              var player2score = 0;
+             const WINNING_SCORE = 3;
 
              var paddle1Y = 250;
              var paddle2Y = 250;
@@ -39,9 +40,14 @@ window.onload  = function(){
 }
 
  function ballReset() {
-            ballSpeedX=-ballSpeedX;
-            ballX = canvas.width/2;
-            ballY = canvas.height/2;
+            if(player1score>= WINNING_SCORE || player2score >=                    WINNING_SCORE) {
+                        player1score = 0;
+                         player2score = 0;
+                              }
+
+            ballSpeedX  =  -ballSpeedX;
+            ballX  =  canvas.width/2;
+            ballY  =  canvas.height/2;
  }
 
 //function for controlling paddle
@@ -88,8 +94,8 @@ if(ballX < 0) {
                   ballSpeedY = deltaY * 0.35;
  
                  } else {
+                        player2score ++; //must be before ball reset
                         ballReset();
-                        player2score ++;
                    }          
 }
 if(ballX > canvas.width){
@@ -104,8 +110,8 @@ if(ballX > canvas.width){
                   ballSpeedY = deltaY * 0.35;
 
                  } else {
-                        ballReset();
                         player1score ++;
+                        ballReset();
                    }          
 
                           //ballSpeedX = -ballSpeedX;
