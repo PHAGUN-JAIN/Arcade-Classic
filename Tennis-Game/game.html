@@ -16,6 +16,8 @@
              var player2score = 0;
              const WINNING_SCORE = 3;
 
+            var showingWinScreen = false;  
+
              var paddle1Y = 250;
              var paddle2Y = 250;
              const PADDLE_HEIGHT = 100;
@@ -43,6 +45,7 @@ window.onload  = function(){
             if(player1score>= WINNING_SCORE || player2score >=                    WINNING_SCORE) {
                         player1score = 0;
                          player2score = 0;
+                         showingWinScreen = true;
                               }
 
             ballSpeedX  =  -ballSpeedX;
@@ -81,6 +84,11 @@ function calculateMousePos(evt) {
 
 
 function moveEverything() {
+
+if (showingWinScreen) { 
+           return;
+              }
+
              computerMovement();
 
                  ballX += ballSpeedX;
@@ -134,6 +142,13 @@ if(ballY > canvas.height){
  function drawEverything() {
     //blacks out hhte screen
     colorRect(0,0,canvas.width,canvas.height,'black');
+
+     
+    if (showingWinScreen) { 
+               canvasContext.fillStyle = 'white';
+               canvasContext.fillText( "Click to continue", 100,100);
+               return;
+              }
     
      //left player paddle
     colorRect(0,paddle1Y,PADDLE_THICKNESS,PADDLE_HEIGHT,'white');
