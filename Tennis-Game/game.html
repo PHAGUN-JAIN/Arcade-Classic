@@ -23,6 +23,15 @@
              const PADDLE_HEIGHT = 100;
              const PADDLE_THICKNESS = 10;
 
+
+ function handleMouseClick(evt) {
+            if (showingWinScreen){
+                 player1score = 0;
+                 player2score = 0;
+                 showingWinscreen = false;
+                 }
+           }
+
 window.onload  = function(){   
               
           canvas = document.getElementById('gameCanvas');
@@ -34,17 +43,18 @@ window.onload  = function(){
                      drawEverything();
 }, 1000/framesPerSecond);
 
+  canvas.addListener('mousedown' ,handleMouseClick); 
+
  canvas.addEventListener('mousemove',
-                  function(evt){
+                  function(evt) {
                         var mousePos = calculateMousePos(evt);
                          paddle1Y = mousePos.y-(PADDLE_HEIGHT/2);
               });
 }
 
  function ballReset() {
-            if(player1score>= WINNING_SCORE || player2score >=                    WINNING_SCORE) {
-                        player1score = 0;
-                         player2score = 0;
+            if(player1score>= WINNING_SCORE || player2score >= WINNING_SCORE) {
+                       
                          showingWinScreen = true;
                               }
 
@@ -137,7 +147,11 @@ if(ballY > canvas.height){
 
 
 
-
+ function drawNet() {
+             for(var i=0;i<canvas.height; i+=40) {
+                   colorRect(canvas.width/2-1,i,2,20,'white');
+             }
+       }
 
  function drawEverything() {
     //blacks out hhte screen
@@ -145,11 +159,22 @@ if(ballY > canvas.height){
 
      
     if (showingWinScreen) { 
+
+          if(player1score>= WINNING_SCORE ){
+
+           canvasContext.fillText( "Left player Won!", 350,200);
+
+         }else if(player2score >= WINNING_SCORE) {
+       
+                    canvasContext.fillText( "Right player Won!", 350,200);
+         }
                canvasContext.fillStyle = 'white';
-               canvasContext.fillText( "Click to continue", 100,100);
+               canvasContext.fillText( "Click to continue", 350,500);
                return;
               }
-    
+          
+       drawNet();    
+
      //left player paddle
     colorRect(0,paddle1Y,PADDLE_THICKNESS,PADDLE_HEIGHT,'white');
 
